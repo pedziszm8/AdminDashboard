@@ -1,0 +1,17 @@
+<%- include ../layouts/header.ejs %>
+<div class="page"> 
+<p>Zalogowano: <span><%= username %></span></p>
+<p><%= message %></p>
+
+
+<form method="POST">
+    <p><label>Login</label> <input type="text" name="username"></p>
+    <p><label>Hasło</label> <input type="password" name="password"></p>
+    <p><label>Email</label> <input type="text" name="email"></p>
+    <p><label>isAdmin</label> <input type="number" min="0" max="1" name="isAdmin"></p>
+    <p><input type="submit" value="Utwórz"></p>
+</form>
+
+</div>
+
+<%- include ../layouts/footer.ejs %>

@@ -1,0 +1,8 @@
+<%- include ./layouts/header.ejs %>
+<p><%= message %></p>
+<form method="POST">
+    <p><label for="login">Login: <input type="text" name="username" id="login"></label></p>
+    <p><label for="password">Hasło: <input type="password" name="password" id="password"></label></p>
+    <p><input type="submit" value="Zaloguj"></p>
+</form>
+<%- include ./layouts/footer.ejs %>
