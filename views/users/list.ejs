@@ -1,6 +1,8 @@
 <%- include ../layouts/header.ejs %>
 <p>Zalogowano: <span><%= username %></span></p>
 
+<button class="nav-button" onclick="addUser()">+ Dodaj użytkownika</button> 
+
 <div class="page-data">
     <div class="data-table">
         <table>
@@ -25,8 +27,8 @@
                    
                     <% if(isAdmin) { %> 
                         <td>
-                            <a href="../customers/edit/<%= data[i].id %>">Edycja</a>
-                            <a href="../customers/delete/<%= data[i].id %>">Usuń</a>
+                            <a href="../users/edit/<%= data[i].id %>">Edycja</a>
+                            <a href="../users/delete/<%= data[i].id %>">Usuń</a>
                         </td>
                         <% } %>
                 </tr>

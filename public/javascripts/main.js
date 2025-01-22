@@ -18,6 +18,14 @@ function addProduct() {
   window.location.href="/addproduct"
 }
 
+function addCustomer() {
+  window.location.href="/addcustomer"
+}
+
+function addUser() {
+  window.location.href="/adduser"
+}
+
 window.addEventListener('load', () => {
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');

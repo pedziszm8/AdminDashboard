@@ -34,11 +34,11 @@ router.get("/addcustomer", function (req, res, next) {//1
 
 
 router.post("/addcustomer", function (req, res, next) {
-  const { name, address, email, phone } = req.body; //^
+  const {name, address, email, phone } = req.body; //^
    //--kopia1-2
-  const sql = `SELECT * from customers WHERE username=$1 LIMIT 1`;
+  const sql = `SELECT * from customers WHERE name=$1 LIMIT 1`;
 
-  db.all(sql, [username], async (err, rows) => {
+  db.all(sql, [name], async (err, rows) => {
     if (err)
       return errorLogger.error(`Błąd przy próbie odczytu z bazy ${err.message}`, { label: 'index.js' });
 
@@ -50,7 +50,7 @@ router.post("/addcustomer", function (req, res, next) {
       });
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
+   // const hashedPassword = await bcrypt.hash(password, 10);
    //--koniec1-2
     const sqlInsert = `INSERT INTO customers(name, address, email, phone) VALUES($1, $2, $3, $4)`;//2
   
@@ -63,14 +63,14 @@ router.post("/addcustomer", function (req, res, next) {
           res.render("admin/addCustomer", {
             title: "Dodawanie klientów",
             message: "",
-            username: getUserName(req.session.token, res),
+            username: "",
           });
         }
 
     res.render("admin/addCustomer", {                                                           //3
       title: "Dodawanie klientów",
       message: "Użytkownik został dodany",
-      username: getUserName(req.session.token, res),
+      username: "",
     });
   })
 })
@@ -159,14 +159,14 @@ router.post("/addproduct", function (req, res, next) {
     if (rows.length === 1) {
       res.render("admin/addProduct", {
         title: "Dodawanie produktów",
-        message: "Użytkownik już istnieje",
+        message: "Produkt już istnieje",
         username: "",
        
 
       });
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
+    //const hashedPassword = await bcrypt.hash(password, 10);
    //--koniec1-2
     const sqlInsert = `INSERT INTO products(product_name, amount, description, category, price) VALUES($1, $2, $3, $4, $5)`;//2
   

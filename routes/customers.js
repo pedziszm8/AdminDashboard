@@ -84,4 +84,18 @@ router.get("/edit/:id", (req, res, next) => {
     })
 })
 
+router.get("/delete/:id", (req, res, next) => {
+    const  {id} = req.params;
+
+    const sql = "DELETE FROM customers WHERE id=$1";                                                                             //
+
+    db.all(sql, [id], (err, rows) => {
+        if(err) return console.log("Błąd przy próbie odczytu z bazy", err.message)
+        const isAdmin = getIsAdmin(req.session.token, res)
+        res.redirect("/customers")
+
+        
+    })
+})
+
 module.exports = router
