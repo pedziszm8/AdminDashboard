@@ -1,0 +1,17 @@
+<%- include ../layouts/header.ejs %>
+<div class="page"> 
+<p>Zalogowano: <span><%= username %></span></p>
+<p><%= message %></p>
+
+
+<form method="POST">
+    <p><label>Nazwa</label> <input type="text" name="name"></p>
+    <p><label>Adres</label> <input type="text" name="address"></p>
+    <p><label>Email</label> <input type="text" name="email"></p>
+    <p><label>Telefon</label> <input type="text"name="phone"></p>
+    <p><input type="submit" value="Utwórz"></p>
+</form>
+
+</div>
+
+<%- include ../layouts/footer.ejs %>

@@ -1,0 +1,18 @@
+<%- include ../layouts/header.ejs %>
+<div class="page"> 
+<p>Zalogowano: <span><%= username %></span></p>
+
+<form method="POST" action="/products/edit/<%=data[0].id %>">
+    <p><label>Nazwa</label> <input type="text" name="product_name" required value="<%=data[0].product_name %>"></p>
+    <p><label>Ilość</label> <input type="text" name="amount" required value="<%= data[0].amount %>"></p>
+    <p><label>Opis</label> <input type="text" name="description" required value="<%=data[0].email %>"></p>
+    <p><label>Kategoria</label> <input type="text" name="category" required value="<%=data[0].category %>"></p>
+
+    <p><label>Cena</label> <input type="text"name="price" required value="<%= data[0].price %>"></p>
+    <p><input type="submit" value="Zapisz">
+        <input type="button" onclick="cancelEdit()" value="Anuluj"></p>
+</form>
+
+</div>
+
+<%- include ../layouts/footer.ejs %>

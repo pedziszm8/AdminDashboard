@@ -1,0 +1,16 @@
+<%- include ../layouts/header.ejs %>
+<div class="page"> 
+<p>Zalogowano: <span><%= username %></span></p>
+
+<form method="POST" action="/customers/edit/<%=data[0].id %>">
+    <p><label>Nazwa</label> <input type="text" name="name" required value="<%=data[0].name %>"></p>
+    <p><label>Adres</label> <input type="text" name="address" required value="<%=data[0].address %>"></p>
+    <p><label>Email</label> <input type="text" name="email" required value="<%=data[0].email %>"></p>
+    <p><label>Telefon</label> <input type="text"name="phone" required value="<%= data[0].phone %>"></p>
+    <p><input type="submit" value="Zapisz">
+        <input type="button" onclick="cancelEdit()" value="Anuluj"></p>
+</form>
+
+</div>
+
+<%- include ../layouts/footer.ejs %>

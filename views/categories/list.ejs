@@ -1,0 +1,38 @@
+<%- include ../layouts/header.ejs %>
+<p>Zalogowano: <span><%= username %></span></p>
+
+<ul>
+    <% data.forEach(function(user) { %>
+        <li><%= user.username %>, <%= user.email %></li>
+    <% }); %>
+</ul>
+<%- include ../customer/list.ejs %>
+<div class="menucategory">
+    <div> 
+        <div data-v-1f4bc028="" class="tabs">
+            <div data-v-1f4bc028="" class="tab is-active">
+            Produkty
+            </div> 
+            <div data-v-1f4bc028="" class="tab">
+            Usługi 
+            </div>
+         
+        </div>          
+    </div>
+    <div>
+        zobacz wszystkie
+       <ul id="menu">
+            <% data.forEach(function(user) { %>
+                <li><%= user.id %>, <%= user.name %></li>
+            <% }); %>
+        
+        
+    
+        </ul>
+    </div>
+
+
+    
+</div>
+
+<%- include ../layouts/footer.ejs %>

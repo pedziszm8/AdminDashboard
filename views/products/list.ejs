@@ -1,0 +1,157 @@
+<%- include ../layouts/header.ejs %>
+<p>Zalogowano: <span><%= username %></span></p>
+
+<button class="nav-button" onclick="addProduct()">+ Dodaj produkt</button> 
+
+
+<div class="page-data">
+    <div class="data-table">
+        <table>
+        <tr>
+            <th>Id</th>
+            <th>Nazwa</th>
+            <th>ilosc</th>
+            <th>opis</th>
+            <th>Kategoria </th>
+            <th>Cena</th>
+            <% if(isAdmin) { %> 
+            <th>Akcja</th> 
+            <% } %>
+        </tr>
+        <% if(data.length) {
+            for(var i = 0; i< data.length; i++) {
+                %>
+                <tr>
+                    <td><%= data[i].id %></td>
+                    <td><%= data[i].product_name %></td>
+                    <td><%= data[i].amount %></td>
+                    <td><%= data[i].description %></td>
+                    <td><%= data[i].category %></td>
+                    <td><%= data[i].price %></td>
+
+                    <% if(isAdmin) { %> 
+                        <td>
+                            <a href="../products/edit/<%= data[i].id %>">Edycja</a>
+                            <a href="../products/delete/<%= data[i].id %>">Usuń</a>
+                        </td>
+                        <% } %>
+                </tr>
+               
+                <%
+            }
+        } else {
+            %>
+            <tr>
+                <td colspan="6">Brak klientów</td>
+            </tr>
+            <%
+        }
+        %>
+        </table>
+
+
+
+
+
+
+
+
+    </div>
+
+
+ 
+</div>
+<p>Zalogowano: <span><%= username %></span></p>
+<div id="main">
+
+
+    <div class="gallery-wrapper">
+        <button class="scroll-button left">&#8249;</button>
+        <div class="scroll-container">
+            
+            <% if (data.length) { %>
+                <% for (var i = 0; i < data.length; i++) { %>
+                    
+                    <div class="carousel-item">
+                        <div class="carousel-product-picture">
+                            <% if (data[i].picture) { %>
+                                <img src="<%= data[i].picture %>" alt="Product Image" width="100">
+                            <% } else { %>
+                                <em>Brak obrazu</em>
+                            <% } %>
+                        </div>
+                        <div class="carousel-product-name"><%= data[i].product_name %></div>
+                        <div class="carousel-product-price"><%= data[i].id %></div>
+                    </div>
+                    
+                <% } %> 
+            <% } %>
+        </div>
+        <button class="scroll-button right">&#8250;</button>
+    </div>
+        
+
+    
+    <div class="menucategory">
+        <div>
+        <div> 
+            <div data-v-1f4bc028="" class="tabs">
+                <div data-v-1f4bc028="" class="tab is-active">
+                Produkty
+                </div> 
+                <div data-v-1f4bc028="" class="tab">
+                Usługi 
+                </div>
+            
+            </div>          
+        </div>
+        <div>
+            zobacz wszystkie
+            <ul id="menu">
+                <li><a href="#">Telefony</a></li>
+                <li><a href="#">Telewizory</a></li>
+                <li><a href="#">Aparaty</a></li>
+                <li><a href="#">Radia</a></li>
+                <li><a href="#">Komputery</a></li>
+            </ul>
+        </div>
+        </div>
+
+        
+   
+
+        <div>Polecane produkty  
+            <div class="carousel-container">
+                <button class="prev-btn" >‹</button>
+                <div class="carousel">
+
+                </div>
+                <% if (data.length) { %>
+                    <% for (var i = 0; i < data.length; i++) { %>
+                    
+                        <div class="carousel-item">
+                        <div class="carousel-product-picture">
+                            <% if (data[i].picture) { %>
+                                <img src="<%= data[i].picture %>" alt="Product Image" width="100">
+                            <% } else { %>
+                                <em>Brak obrazu</em>
+                            <% } %>
+                        </div>
+                        <div class="carousel-product-name"><%= data[i].product_name %></div>
+                        <div class="carousel-product-price"><%= data[i].id %></div>
+                    </div>
+                
+                    <% } %> 
+                <% } %>
+            </div>
+            
+            </div><button class="next-btn">›</button>
+        </div>
+    </div>
+
+</div>
+
+
+    
+    
+<%- include ../layouts/footer.ejs %>
