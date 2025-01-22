@@ -2,13 +2,18 @@
   box-sizing: border-box;
 }
 
-
-html,
-body {
+html, body {
   width: 100%;
   height: 100%;
   padding: 0;
   margin: 0;
+}
+
+body {
+  font: 14px/1.6 monospace;
+  color: #343a40; /* Neutralny szary tekst */
+  padding: 80px 60px;
+  background: #eef4fc; /* Jasne, niebieskawe tło */
 }
 
 .page {
@@ -17,4 +22,226 @@ body {
 
 .page-data {
   width: 70%;
+}
+
+form p, form tr {
+  width: fit-content;
+  position: relative;
+  padding: 3px;
+  border-radius: 6px;
+  border: 1px solid #007bff; /* Akcentowy niebieski */
+  margin: 10px;
+  background: #ffffff; /* Białe tło pól formularza */
+}
+
+form p label, 
+form .label {
+  position: absolute;
+  top: -7px;
+  left: 15px;
+  font-size: 13px;
+  background: #eef4fc; /* Dopasowane jasnoniebieskie tło */
+  padding: 0 4px;
+  color: #0056b3; /* Ciemniejszy niebieski tekst */
+}
+
+form p input, form tr input {
+  outline: none;
+  border: 1px solid #ced4da; /* Subtelna ramka */
+  border-radius: 4px;
+  padding: 5px;
+  background: #ffffff; /* Białe pole tekstowe */
+  font-family: monospace;
+  color: #495057; /* Neutralny tekst */
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-background-clip: padding-box;
+  background-color: #eef4fc !important; /* Dopasowanie autofill */
+  color: #495057 !important;
+}
+
+table {
+  border-spacing: 10px;
+  width: 100%;
+  border-collapse: separate; /* Zapewnia odstępy między komórkami */
+}
+
+th, td {
+  text-align: center;
+  padding: 8px 12px;
+  color: #343a40; /* Neutralny szary */
+  border: 1px solid #ced4da; /* Subtelne linie */
+  background: #ffffff; /* Białe tło komórek */
+}
+
+th {
+  font-weight: bold;
+  background: #e2eaf2; /* Delikatne jasnoniebieskie tło nagłówków */
+}
+
+
+#main {
+  display: flex ;
+ 
+  gap: 24px;
+  padding: 24px;
+  margin: 10px;
+  flex-direction: column;
+}
+
+header {
+  background-color: darkgray;
+}
+
+#header_band{
+  font-size: 20px;
+  background: #151401;
+  color: #ffea00;
+  height: 79px;
+  display: flex;
+  justify-content: center;
+}
+
+.menucategory {
+  display: flex;
+  flex-basis: 254px;
+  height: 586px;
+  width: 444px;
+  background-color:  aqua;
+  align-content: baseline;
+  /*justify-content: center;*/
+  flex-direction: column;
+  align-items: baseline;
+  border: 1px solid #ddd
+}
+
+.article {
+  display: block;
+  /*flex-basis: 254px;*/
+    
+  border: 1px solid #ddd
+
+}
+
+.tabs {
+  display: flex;
+  flex: 1;
+  padding: 10px 0 9px;
+  font: 17px sans-serif;
+  text-align: center;
+  justify-content: center;
+}
+
+.carousel-container {
+  display: flex;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex; align-items: center; justify-content: center; width: 1000px; margin: auto; overflow: hidden; background-color: #eef4fc;
+}
+
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  flex-grow: 1;
+  margin: 20px;
+}
+
+.carousel-item {
+  flex: 0 0 auto;
+  width: 300px;
+  height: 420px;
+  margin-right: 16px;
+  scroll-snap-align: start;
+  background-color: #ddd;
+  
+  align-items: center;
+  justify-content: center;
+  
+  border-radius: 8px;
+}
+
+button {
+  background-color: #444;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  height: 31px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+ display: flex;
+}
+
+.next-btn{
+  display: flex;
+}
+
+.prev-btn{
+  display: flex;
+}
+
+.carousel-product-picture {
+  width: 228;
+  height: 228;
+}
+
+.carousel-product-name{
+  width: 230px;
+  height: 140px;
+  font-size: 15px;
+  /*word-wrap: break-word;*/
+  max-height: 140px;
+  white-space: normal;
+}
+
+.carousel-product-price{
+  width: 105px;
+  height: 36px;
+  font-size: 32px;
+}
+
+.gallery-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;margin-top: 40px;
+  width: 65%;
+}
+
+.scroll-container {
+  background-color: #333;
+  overflow: auto;
+  white-space: nowrap;
+  padding: 10px;
+  display: flex;
+  flex-wrap: nowrap;
+  scroll-behavior: smooth; /* Dodaje płynne przewijanie */
+  /*width: 80%; /* Ustal szerokość widocznej części kontenera */
+}
+
+.scroll-container img {
+  padding: 10px;
+}
+
+.scroll-button {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.scroll-button.left {
+  margin-right: 5px;
+}
+
+.scroll-button.right {
+  margin-left: 5px;
 }

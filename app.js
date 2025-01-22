@@ -6,9 +6,14 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const customerRouter = require("./routes/customers")
+var productsRouter = require('./routes/products')
+var categoriesRouter = require('./routes/categories')
 
 const config = require("./config");
 const cookieSession = require('cookie-session');
+
+const { infoLogger, errorLogger } = require('./loggger');
 
 var app = express();
 
@@ -27,8 +32,12 @@ app.use(cookieSession({
   maxAge: config.maxAgeSession
 }))
 
+infoLogger.info(`Serwer został uruchomiony`, { label: 'app.js' });
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/customers', customerRouter);
+app.use('/products', productsRouter);
+app.use('/categories',categoriesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -45,5 +54,8 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
+
 
 module.exports = app;

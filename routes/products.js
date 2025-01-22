@@ -61,14 +61,16 @@ router.get("/",function(req, res, next) {
 
 
 router.post("/edit/:id", (req, res, next)=> {
-    const {username, email, isAdmin} = req.body;
+    console.log(req.body);
+    const {product_name, amount, description, category, price} = req.body;
     const  {id} = req.params;
     const isAdmin1 = getIsAdmin(req.session.token, res)
 
     if(isAdmin1){ 
-        const sqlUpdate = "UPDATE products SET product_name=$1, description=$2, category=$3, price=$4 WHERE id=$5"               //, amount, description, category, price
+        const sqlUpdate = "UPDATE products SET product_name=$1, amount=$2, description=$3, category=$4, price=$5 WHERE id=$6"               //, amount, description, category, price
     
-        db.all(sqlUpdate, [username,email,isAdmin,id],(err, rows)=>{
+        db.all(sqlUpdate, [product_name, amount, description, category, price, id],(err, rows)=>{
+            //console.log(err.message);
             res.redirect("/products")                                                                               //
         })
     } else {

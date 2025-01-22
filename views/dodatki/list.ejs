@@ -1,0 +1,44 @@
+<div id="Polecane">Polecane produkty 
+    <div class="carousel-container">
+        <button class="prev-btn">‹</button><% /*
+        <div class="carousel">
+          <div class="carousel-item">Item 1
+            <div class="carousel-product-picture"></div>
+            <div class="carousel-product-name"></div>
+            <div class="carousel-product-price"></div>
+
+        </div>
+
+          <div class="carousel-item">Item 2</div>
+          <div class="carousel-item">Item 3</div>
+          <div class="carousel-item">Item 4</div>
+          
+        </div>
+        <button class="next-btn">›</button>
+    </div> */ %>
+    
+    <% if(data.length) {
+        for(var i = 0; i< data.length; i++) { %>
+            
+            <div class="carousel">
+              <div class="carousel-item">Item 1
+                <div class="carousel-product-picture">
+                    <% if (data[i].image) { %>
+                        <br><img src="<%= data[i].picture %>" alt="User Image" width="100">
+                    <% } else { %>
+                      <br><em>Brak obrazu</em>
+                    <% } %>
+                </div>
+                <div class="carousel-product-name"><%= data[i].product_name %></div>
+                <div class="carousel-product-price"><%= data[i].id %> </div>
+      
+              </div>
+
+            </div>
+        <%
+        }
+        %>
+        <%
+  }
+     %>   
+    </div>
