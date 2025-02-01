@@ -1,8 +1,8 @@
 <%- include ../layouts/header.ejs %>
 <p>Zalogowano: <span><%= username %></span></p>
-
+<% if(isAdmin) { %> 
 <button class="nav-button" onclick="addProduct()">+ Dodaj produkt</button> 
-
+<% } %>
 
 <div class="page-data">
     <div class="data-table">
